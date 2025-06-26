@@ -5,9 +5,9 @@ import Header from './Components/Header/Header'
 import Footer from './Components/Footer/Footer'
 import AskQuestion from './pages/AskQuestion/AskQuestion'
 import Answer from './pages/Answer/Answer.jsx'
-import Howitwork from './Pages/Howitwork/Howitwork'
+import Howitwork from './pages/Howitwork/Howitwork'
 import Protected from './Components/Protected'
-import Profile from './Pages/Profile/Profile'
+import Profile from './pages/Profile/Profile'
 import EditQuestion from "./pages/EditQuestion/EditQuestion";
 import { Spinner } from 'react-bootstrap';
 import { useContext } from 'react'
