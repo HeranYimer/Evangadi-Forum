@@ -9,6 +9,7 @@ function Answer() {
     const {qid} =useParams()
     const [answer, setAnswer] = useState([])
     const [question, setQuestion] = useState([])
+     const [errorMsg, setErrorMsg] = useState("");
     const answerRef = useRef('')
     const token = localStorage.getItem('token')
 
@@ -37,7 +38,7 @@ function Answer() {
         // if(answerValue.length < 5){
         //    return alert('Please enter at least 6 character')
         // }
-        const [errorMsg, setErrorMsg] = useState("");
+       
 
         async function postAnswer(e) {
           e.preventDefault();
