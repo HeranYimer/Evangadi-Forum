@@ -267,3 +267,14 @@ body{
     text-align: center;
   }
 }
+.success {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}

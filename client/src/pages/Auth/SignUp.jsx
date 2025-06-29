@@ -87,8 +87,9 @@ function SignUp({ toggler }) {
         );
       }
     } catch (error) {
-      const errorMessage =
-        error.response?.data?.error || "Something went wrong!";
+     const errorMessage =
+  error.response?.data?.error ||
+  "Something went wrong!";
       showStatus(errorMessage, "error");
     } finally {
       setLoading(false);
@@ -104,13 +105,7 @@ function SignUp({ toggler }) {
           Sign in{" "}
         </Link>
       </p>
-      {/* 
-      {status.message && (
-        <Alert variant={status.type === "error" ? "danger" : "success"}>
-          {status.message}
-        </Alert>
-        
-      )} */}
+
       {status.message && (
         <Alert
           variant={status.type === "error" ? "danger" : "success"}
@@ -121,28 +116,7 @@ function SignUp({ toggler }) {
           {status.message}
         </Alert>
       )}
-
-      {/* 
-      <form onSubmit={signup}>
-        <input ref={emailRef} type="email" placeholder="Your Email" />
-        <div className={styles.nameContainer}>
-          <input ref={first_nameRef} type="name" placeholder="First Name" />
-          <input ref={last_nameRef} type="name" placeholder="Last Name" />
-        </div>
-        <input ref={usernameRef} type="text" placeholder="Username" />
-        <input ref={passwordRef} type="password" placeholder="Your Password" />
-
-        {loading ? (
-          <>
-          <Spinner animation="border" size="sm"/>Registering...
-          </>
-        ):(
-          <button type="submit">Agree and Join</button>
-        )}
-
    
-        
-      </form> */}
       <form onSubmit={signup}>
         <input
           ref={emailRef}

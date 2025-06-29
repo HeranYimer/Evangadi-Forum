@@ -10,12 +10,9 @@ export async function askquestion(req, res) {
   if (!title || !description) {
     return res.status(StatusCodes.BAD_REQUEST).json({
       success: false,
-      status: 400,
       error: "Please Provide all the required fields.",
-      msg: "Title question and Description are required.",
     });
   }
-
 
   try {
     const result = await pool.execute(
@@ -26,7 +23,6 @@ export async function askquestion(req, res) {
     //success response
     res.status(StatusCodes.CREATED).json({
       success: true,
-      status: 201,
       question_id: result[0].insertId,
       msg: "Question posted successfully!",
     });
@@ -34,7 +30,6 @@ export async function askquestion(req, res) {
     console.error(error);
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       error: "Failed to post question. Please try again later",
-      msg: "Something went wrong, try again.",
     });
   }
 }
@@ -80,7 +75,6 @@ export async function editQuestion(req, res) {
       .send("Failed to update question");
   }
 }
-
 
 // Delete question
 export async function deleteQuestion(req, res) {
@@ -132,7 +126,6 @@ export async function getAllQuestions(req, res) {
     console.error("Get all questions error:", error.message);
     res.status(500).json({
       success: false,
-      message: "Internal Server Error",
       error: "Failed to retrieve questions. Please try again later",
     });
   }
@@ -154,16 +147,13 @@ export const getSingleQuestion = async (req, res) => {
     if (result.length === 0) {
       return res.status(StatusCodes.BAD_REQUEST).json({
         success: false,
-        status: 404,
-        error: "not found",
-        message: "Question not found",
+        error: "Question not found",
       });
     }
     const [data] = result;
 
     res.status(StatusCodes.OK).json({
       success: true,
-      status: 200,
       message: "Question queried successfully",
       question: {
         question_id: data.question_id,
@@ -180,7 +170,6 @@ export const getSingleQuestion = async (req, res) => {
     console.error("Error fetching question:", error.message);
     res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       success: false,
-      status: 500,
       error: "Unable to query question. Internal Server Error",
     });
   }
